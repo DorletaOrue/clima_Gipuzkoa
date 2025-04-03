@@ -9,7 +9,6 @@ import re
 import folium
 import streamlit as st
 import leafmap.foliumap as leafmap
-import os
 
 
 st.set_page_config(page_title='Dashboard',layout='wide')
