@@ -4,7 +4,6 @@ Created on Thu Apr  3 13:51:48 2025
 
 @author: N28ORIGD
 """
-
 import pandas as pd
 import re
 import folium
@@ -16,5 +15,3 @@ import os
 
 st.set_page_config(page_title='Dashboard',layout='wide')
 st.title('Clima Gipuzkoan')
-
-streamlit run app.py
