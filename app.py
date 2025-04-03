@@ -8,7 +8,6 @@ import pandas as pd
 import re
 import folium
 import streamlit as st
-import matplotlib.pyplot as plt
 import leafmap.foliumap as leafmap
 import os
 
