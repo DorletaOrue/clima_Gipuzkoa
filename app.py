@@ -27,3 +27,15 @@ variable=st.sidebar.selectbox('Aldagaia',variables)
 estaciones = Estaciones['Estación'].unique()
 estacion=st.sidebar.selectbox('Estazioa',estaciones)
 
+# Filter data
+filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
+
+# Create the chart
+fig, ax = plt.subplots()
+ax.plot(filtered_data['Fecha'], filtered_data['Valor'], color='red')
+ax.set_title(f'{variable} - {estacion}')
+ax.set_xlabel('Fecha')
+ax.set_ylabel('Balioa')
+
+# Show plot in Streamlit
+st.pyplot(fig)
