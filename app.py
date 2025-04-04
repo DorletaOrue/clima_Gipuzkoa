@@ -12,3 +12,21 @@ import streamlit as st
 
 st.set_page_config(page_title='Dashboard',layout='wide')
 st.title('Clima Gipuzkoan')
+
+st.sidebar.title('Estazioa')
+
+
+#load data
+Estaciones=pd.read_excel('Estaciones_temperatura.xlsx',sheet_name='Hoja4')
+
+#Create the chart
+variables=Estaciones['Variable'].unique()
+variable=st.sidebar.selectbox('Aldagaia',variables)
+
+estaciones = Estaciones['Estación'].unique()
+estacion=st.sidebar.selectbox('Estazioa',estaciones)
+
+fig,ax = plt.subplots(1,1)
+estacion.plot(kind='line',ax=ax,color='red')
+ax.set_xticklabels([])
+stats = st.sidebar.pyplot(fig)
