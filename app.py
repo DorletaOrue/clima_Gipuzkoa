@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from io import BytesIO
 
+st.set_page_config(page_title='Dashboard',layout='wide')
+st.title('Clima Gipuzkoan')
+
 # Set sidebar width
 st.markdown("""
     <style>
@@ -25,8 +28,6 @@ st.markdown("""
 
 
 
-st.set_page_config(page_title='Dashboard',layout='wide')
-st.title('Clima Gipuzkoan')
 
 st.sidebar.title('Estazioa')
 
