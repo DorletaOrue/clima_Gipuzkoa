@@ -15,10 +15,10 @@ from io import BytesIO
 st.markdown("""
     <style>
         [data-testid="stSidebar"] {
-            width: 400px;
+            width: 800px;
         }
         [data-testid="stSidebar"] > div:first-child {
-            width: 400px;
+            width: 800px;
         }
     </style>
 """, unsafe_allow_html=True)
