@@ -37,11 +37,10 @@ ax.set_title(f'{variable} - {estacion}')
 ax.set_xlabel('Fecha')
 ax.set_ylabel('Balioa')
 
+# Save the plot to a buffer
+buf = BytesIO()
+fig.savefig(buf, format="png")
+buf.seek(0)
 
-# Layout: two columns to simulate left/right (sidebar + plot look)
-st.markdown("---")  # horizontal rule for spacing
-
-left_col, _ = st.columns([1, 3])  # Only use the left column
-
-with left_col:
-    st.pyplot(fig)
+# Show plot in the sidebar as an image
+st.sidebar.image(buf, caption="Grafikoa", use_column_width=True)
