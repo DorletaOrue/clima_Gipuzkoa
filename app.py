@@ -32,6 +32,7 @@ filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['
 
 # Create the chart
 fig, ax = plt.subplots()
+ax.plot([1, 2, 3], [4, 5, 6])
 ax.plot(filtered_data['Año'], filtered_data['Valor'], color='red')
 ax.set_title(f'{variable} - {estacion}')
 ax.set_xlabel('Fecha')
