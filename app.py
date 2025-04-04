@@ -11,6 +11,19 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from io import BytesIO
 
+# Set sidebar width
+st.markdown("""
+    <style>
+        [data-testid="stSidebar"] {
+            width: 400px;
+        }
+        [data-testid="stSidebar"] > div:first-child {
+            width: 400px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
 
 st.set_page_config(page_title='Dashboard',layout='wide')
 st.title('Clima Gipuzkoan')
