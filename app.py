@@ -44,4 +44,4 @@ fig.savefig(buf, format="png")
 buf.seek(0)
 
 # Show plot in the sidebar as an image
-st.sidebar.image(buf, caption="Grafikoa", use_column_width=True)
+st.sidebar.image(buf, caption="Grafikoa",  use_container_width=True)
