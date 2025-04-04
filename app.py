@@ -23,3 +23,6 @@ Estaciones=pd.read_excel('Estaciones_temperatura.xlsx',sheet_name='Hoja4')
 #Create the chart
 variables=Estaciones['Variable'].unique()
 variable=st.sidebar.selectbox('Aldagaia',variables)
+
+#estaciones = Estaciones['Estación'].unique()
+estacion=st.sidebar.selectbox('Estazioa',estaciones)
