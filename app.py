@@ -37,15 +37,11 @@ ax.set_title(f'{variable} - {estacion}')
 ax.set_xlabel('Fecha')
 ax.set_ylabel('Balioa')
 
-# Show plot in Streamlit
-st.pyplot(fig)
 
-# Layout with two columns: Plot on the left
-left_col, right_col = st.columns([1, 3])  # You can adjust 1:3 to 1:2 or 2:3, etc.
+# Layout: two columns to simulate left/right (sidebar + plot look)
+st.markdown("---")  # horizontal rule for spacing
+
+left_col, _ = st.columns([1, 3])  # Only use the left column
 
 with left_col:
-    st.write("### Grafikoa")
     st.pyplot(fig)
-
-with right_col:
-    st.write("### Beste edukia")  # Optional: leave empty or add other content
