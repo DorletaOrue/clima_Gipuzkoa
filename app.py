@@ -7,6 +7,7 @@ Created on Thu Apr  3 13:51:48 2025
 import pandas as pd
 import re
 import folium
+import matplotlib.pyplot as plt
 import streamlit as st
 
 
@@ -22,11 +23,3 @@ Estaciones=pd.read_excel('Estaciones_temperatura.xlsx',sheet_name='Hoja4')
 #Create the chart
 variables=Estaciones['Variable'].unique()
 variable=st.sidebar.selectbox('Aldagaia',variables)
-
-estaciones = Estaciones['Estación'].unique()
-estacion=st.sidebar.selectbox('Estazioa',estaciones)
-
-fig,ax = plt.subplots(1,1)
-estacion.plot(kind='line',ax=ax,color='red')
-ax.set_xticklabels([])
-stats = st.sidebar.pyplot(fig)
