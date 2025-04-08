@@ -53,12 +53,12 @@ filtered_data,
 labels={'Año':' ','Valor':'T(ºC)'},
 markers=True
 )
-  fig.update_layout(
-        title_x=0.5,
-        template='plotly_white'
-    )
+fig.update_layout(
+    title_x=0.5,
+    template='plotly_white'
+)
 
-    st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
 # Save the plot to a buffer
 buf = BytesIO()
