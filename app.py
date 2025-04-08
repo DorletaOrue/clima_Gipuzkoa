@@ -47,7 +47,7 @@ if not filtered_data.empty:
         filtered_data,
         x='Año',
         y='Valor',
-        # title=f'{variable} - {estacion}',
+        title=f'{Variable} - {Estación}',
         labels={'Año': ' ', 'Valor': 'T(ºC)'},
         markers=True
     )
