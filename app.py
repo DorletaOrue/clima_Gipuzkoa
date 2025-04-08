@@ -44,12 +44,12 @@ filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['
 filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 
 # Plotly chart
-    fig = px.line(
-        filtered_data,
-        x='Año',
-        y='Valor'
-        markers=True
-    )
-    fig.update_layout(title_x=0.5, template='plotly_white')
-    st.plotly_chart(fig, use_container_width=True)
+fig = px.line(
+    filtered_data,
+    x='Año',
+    y='Valor'
+    markers=True
+)
+fig.update_layout(title_x=0.5, template='plotly_white')
+st.plotly_chart(fig, use_container_width=True)
 
