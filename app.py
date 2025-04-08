@@ -44,6 +44,7 @@ filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['
 filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 
 filtered_temp=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Tenperatura / Temperatura')]
+filtered_prec=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Prezipitazioa / Precipitación')]
 
 #Split main panel into two columns
 col1,col2=st.columns([2,1])
@@ -51,11 +52,17 @@ col1,col2=st.columns([2,1])
 
 with col2:
     # Plotly chart
-    fig = px.scatter(
+    fig1 = px.line(
         filtered_temp,
         x='Año',
         y='Valor')
-    fig.update_traces(mode='lines+markers') 
-    fig.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
+    fig1.update_traces(mode='lines+markers') 
+    fig1.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
     st.plotly_chart(fig, use_container_width=True)
+
+    fig2=px.bar(
+        filtered_prec,
+        x='Año',
+        y='Valor')
+
 
