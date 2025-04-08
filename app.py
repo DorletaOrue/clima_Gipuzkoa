@@ -19,10 +19,10 @@ st.title('Clima Gipuzkoan')
 st.markdown("""
     <style>
         [data-testid="stSidebar"] {
-            width: 400px;
+            width: 500px;
         }
         [data-testid="stSidebar"] > div:first-child {
-            width: 400px;
+            width: 500px;
         }
     </style>
 """, unsafe_allow_html=True)
