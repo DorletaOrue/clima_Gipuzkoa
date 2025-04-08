@@ -12,7 +12,7 @@ import streamlit as st
 from io import BytesIO
 import plotly.express as px
 
-st.set_page_config(page_title='Dashboard',layout='wide')
+st.set_page_config(page_title='Dashboard', layout='wide')
 st.title('Clima Gipuzkoan')
 
 # Set sidebar width
@@ -27,36 +27,32 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-
-
 st.sidebar.title('Estazioa')
 
+# Load data
+Estaciones = pd.read_excel('Estaciones_temperatura.xlsx', sheet_name='Hoja4')
 
-#load data
-Estaciones=pd.read_excel('Estaciones_temperatura.xlsx',sheet_name='Hoja4')
-
-#Create the chart
-variables=Estaciones['Variable'].unique()
-variable=st.sidebar.selectbox('Aldagaia',variables)
+# Sidebar selectors
+variables = Estaciones['Variable'].unique()
+variable = st.sidebar.selectbox('Aldagaia', variables)
 
 estaciones = Estaciones['Estación'].unique()
-estacion=st.sidebar.selectbox('Estazioa',estaciones)
+estacion = st.sidebar.selectbox('Estazioa', estaciones)
 
 # Filter data
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
 
-# Create the chart
-fig=px.line(
-filtered_data,
-    x=['Año'], y=['Valor'], title = f'{variable} - {estacion}',
-labels={'Año':' ','Valor':'T(ºC)'},
-markers=True
-)
-fig.update_layout(
-    title_x=0.5,
-    template='plotly_white'
-)
-
-st.plotly_chart(fig, use_container_width=True)
-
+# Plotly chart
+if not filtered_data.empty:
+    fig = px.line(
+        filtered_data,
+        x='Año',
+        y='Valor',
+        title=f'{variable} - {estacion}',
+        labels={'Año': ' ', 'Valor': 'T(ºC)'},
+        markers=True
+    )
+    fig.update_layout(title_x=0.5, template='plotly_white')
+    st.plotly_chart(fig, use_container_width=True)
+else:
+    st.warning("Ez dago daturik aukeratutako irizpideekin.")
