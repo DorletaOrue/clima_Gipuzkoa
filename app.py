@@ -43,13 +43,17 @@ estacion = st.sidebar.selectbox('Estazioa', estaciones)
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
 filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 
+#Split main panel into two columns
+col1,col2=st.columns([2,1])
 
-# Plotly chart
-fig = px.scatter(
-    filtered_data,
-    x='Año',
-    y='Valor')
-fig.update_traces(mode='lines+markers') 
-fig.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
-st.plotly_chart(fig, use_container_width=True)
+
+with col1:
+    # Plotly chart
+    fig = px.scatter(
+        filtered_data,
+        x='Año',
+        y='Valor')
+    fig.update_traces(mode='lines+markers') 
+    fig.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
+    st.plotly_chart(fig, use_container_width=True)
 
