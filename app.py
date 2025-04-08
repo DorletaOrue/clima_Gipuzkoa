@@ -56,7 +56,7 @@ with col2:
         filtered_temp,
         x='Año',
         y='Valor')
-    fig1.update_traces(mode='lines+markers') 
+    fig1.update_traces(mode='lines+markers',line=dict(color='red')) 
     fig1.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
     st.plotly_chart(fig1, use_container_width=True)
 
