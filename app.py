@@ -43,6 +43,9 @@ estacion = st.sidebar.selectbox('Estazioa', estaciones)
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
 filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 
+st.write("✅ Checkpoint reached")
+st.write("Type of px:", type(px))
+
 # Plotly chart
 fig = px.line(
     filtered_data,
