@@ -50,7 +50,7 @@ filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['
 fig=pxline(
 filtered_data,
     x=['Año'], y=['Valor'], title = f'{variable} - {estacion}',
-labels={'Año'=' ','Valor'='T(ºC)'},
+labels={'Año':' ','Valor':'T(ºC)'},
 markers=True
 )
   fig.update_layout(
