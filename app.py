@@ -50,6 +50,6 @@ fig = px.scatter(
     x='Año',
     y='Valor')
 fig.update_traces(mode='lines+markers') 
-fig.update_layout(title_x=0.5, xaxis_tite='',yaxis_title='T (ºC'), title=estacion,template='plotly_white')
+fig.update_layout(title_x=0.5, xaxis_tite='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
 st.plotly_chart(fig, use_container_width=True)
 
