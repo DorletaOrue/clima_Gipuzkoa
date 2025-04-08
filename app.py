@@ -49,7 +49,6 @@ fig = px.line(
     filtered_data,
     x='Año',
     y='Valor',
-    markers=True,
     trendline='ols'
 )
 fig.update_layout(title_x=0.5, template='plotly_white')
