@@ -43,6 +43,8 @@ estacion = st.sidebar.selectbox('Estazioa', estaciones)
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
 filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 
+filtered_temp=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Tenperatura / Temperatura')]
+
 #Split main panel into two columns
 col1,col2=st.columns([2,1])
 
@@ -50,7 +52,7 @@ col1,col2=st.columns([2,1])
 with col2:
     # Plotly chart
     fig = px.scatter(
-        filtered_data,
+        filtered_temp,
         x='Año',
         y='Valor')
     fig.update_traces(mode='lines+markers') 
