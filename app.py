@@ -45,7 +45,7 @@ filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 
 
 # Plotly chart
-fig = px.line(
+fig = px.scatter(
     filtered_data,
     x='Año',
     y='Valor')
