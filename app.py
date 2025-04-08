@@ -40,6 +40,7 @@ estacion = st.sidebar.selectbox('Estazioa', estaciones)
 
 # Filter data
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
+filtered_data = filtered_data .dropna
 
 # Plotly chart
 if not filtered_data.empty:
