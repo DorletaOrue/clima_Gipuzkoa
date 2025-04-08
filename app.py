@@ -43,7 +43,6 @@ filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['
 filtered_data = filtered_data .dropna
 
 # Plotly chart
-if not filtered_data.empty:
     fig = px.line(
         filtered_data,
         x='Año',
@@ -52,5 +51,4 @@ if not filtered_data.empty:
     )
     fig.update_layout(title_x=0.5, template='plotly_white')
     st.plotly_chart(fig, use_container_width=True)
-else:
-    st.warning("Ez dago daturik aukeratutako irizpideekin.")
+
