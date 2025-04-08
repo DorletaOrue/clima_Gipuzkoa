@@ -64,5 +64,6 @@ with col2:
         filtered_prec,
         x='Año',
         y='Valor')
+    fig2.update_layout(title_x=0.5, xaxis_title='',yaxis_title='P (mm)', title=estacion,template='plotly_white')
     st.plotly_chart(fig2, use_container_width=True)
 
