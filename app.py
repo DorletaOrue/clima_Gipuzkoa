@@ -47,7 +47,7 @@ estacion=st.sidebar.selectbox('Estazioa',estaciones)
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
 
 # Create the chart
-fig=pxline(
+fig=px.line(
 filtered_data,
     x=['Año'], y=['Valor'], title = f'{variable} - {estacion}',
 labels={'Año':' ','Valor':'T(ºC)'},
