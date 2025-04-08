@@ -9,7 +9,7 @@ import re
 import folium
 import matplotlib.pyplot as plt
 import streamlit as st
-import plotly.express as px 
+import plotly.express as px  
 from io import BytesIO
 
 st.set_page_config(page_title='Dashboard', layout='wide')
