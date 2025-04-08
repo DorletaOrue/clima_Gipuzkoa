@@ -60,10 +60,3 @@ fig.update_layout(
 
 st.plotly_chart(fig, use_container_width=True)
 
-# Save the plot to a buffer
-buf = BytesIO()
-fig.savefig(buf, format="png")
-buf.seek(0)
-
-# Show plot in the sidebar as an image
-st.sidebar.image(fig, caption="Grafikoa",  use_container_width=True)
