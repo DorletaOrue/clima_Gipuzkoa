@@ -47,7 +47,7 @@ filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 col1,col2=st.columns([2,1])
 
 
-with col1:
+with col2:
     # Plotly chart
     fig = px.scatter(
         filtered_data,
