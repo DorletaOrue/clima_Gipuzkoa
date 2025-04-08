@@ -10,6 +10,7 @@ import folium
 import matplotlib.pyplot as plt
 import streamlit as st
 from io import BytesIO
+import plotly.express as px
 
 st.set_page_config(page_title='Dashboard',layout='wide')
 st.title('Clima Gipuzkoan')
@@ -46,11 +47,18 @@ estacion=st.sidebar.selectbox('Estazioa',estaciones)
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
 
 # Create the chart
-fig, ax = plt.subplots()
-ax.plot(filtered_data['Año'], filtered_data['Valor'], color='red')
-ax.set_title(f'{variable} - {estacion}')
-ax.set_xlabel('Fecha')
-ax.set_ylabel('Balioa')
+fig=pxline(
+filtered_data,
+    x=['Año'], y=['Valor'], title = f'{variable} - {estacion}',
+labels={'Año'=' ','Valor'='T(ºC)'},
+markers=True
+)
+  fig.update_layout(
+        title_x=0.5,
+        template='plotly_white'
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
 
 # Save the plot to a buffer
 buf = BytesIO()
@@ -58,4 +66,4 @@ fig.savefig(buf, format="png")
 buf.seek(0)
 
 # Show plot in the sidebar as an image
-st.sidebar.image(buf, caption="Grafikoa",  use_container_width=True)
+st.sidebar.image(fig, caption="Grafikoa",  use_container_width=True)
