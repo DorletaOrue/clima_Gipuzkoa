@@ -49,7 +49,8 @@ fig = px.scatter(
     filtered_data,
     x='Año',
     y='Valor',
-    trendline='ols'
+    trendline='ols',
+    markers=True
 )
 fig.update_layout(title_x=0.5, template='plotly_white')
 st.plotly_chart(fig, use_container_width=True)
