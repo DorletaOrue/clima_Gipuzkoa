@@ -58,11 +58,11 @@ with col2:
         y='Valor')
     fig1.update_traces(mode='lines+markers') 
     fig1.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig1, use_container_width=True)
 
     fig2=px.bar(
         filtered_prec,
         x='Año',
         y='Valor')
-
+    st.plotly_chart(fig2, use_container_width=True)
 
