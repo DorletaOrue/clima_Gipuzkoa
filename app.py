@@ -13,7 +13,7 @@ import plotly.express as px
 from io import BytesIO
 import geopandas
 from streamlit_folium import st_folium
-
+from folium.plugins import MarkerCluster  
 
 st.set_page_config(page_title='Dashboard', layout='wide')
 st.title('Clima Gipuzkoan')
