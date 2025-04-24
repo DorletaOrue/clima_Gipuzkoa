@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import plotly.express as px  
 from io import BytesIO
+import geopandas
 from streamlit_folium import st_folium
 
 
@@ -52,8 +53,20 @@ filtered_prec=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Va
 col1,col2=st.columns([2,1])
 
 with col1:
+
+    geometry = geopandas.points_from_xy(Estaciones['long'], Estaciones['lat'])
+    geo_df = geopandas.GeoDataFrame(
+    Estaciones[["Año", "Estación", "lat", "long", "Variable",'Valor','Tendencia']], geometry=geometry)
+
+    # Create a geometry list from the GeoDataFrame
+    geo_df_list = [[point.xy[1][0], point.xy[0][0]] for point in geo_df.geometry]
+    
     map1 = folium.Map(location=[43.178, -2.21], zoom_start=10)
     # Mostrar mapa en Streamlit
+    for station in geo_df_list:
+    folium.Marker(
+    location=station,
+    ).add_to(marker_cluster)
     st_data = st_folium(map1, width=700, height=500)
 
 with col2:
