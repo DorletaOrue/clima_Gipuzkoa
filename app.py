@@ -49,6 +49,9 @@ filtered_prec=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Va
 #Split main panel into two columns
 col1,col2=st.columns([2,1])
 
+with col1:
+    map1=folium.Map(location=[43.1,-1],zoom_start=12)
+    map1
 
 with col2:
     # Plotly chart
