@@ -64,9 +64,9 @@ with col1:
     map1 = folium.Map(location=[43.178, -2.21], zoom_start=10)
     # Mostrar mapa en Streamlit
     for station in geo_df_list:
-    folium.Marker(
-    location=station,
-    ).add_to(marker_cluster)
+        folium.Marker(
+        location=station,
+        ).add_to(marker_cluster)
     st_data = st_folium(map1, width=700, height=500)
 
 with col2:
