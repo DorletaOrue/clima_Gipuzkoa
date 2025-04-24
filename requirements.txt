@@ -4,4 +4,4 @@ matplotlib
 plotly
 openpyxl
 folium
-
+streamlit_folium
