@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import plotly.express as px  
 from io import BytesIO
+from streamlit_folium import st_folium
+
 
 st.set_page_config(page_title='Dashboard', layout='wide')
 st.title('Clima Gipuzkoan')
