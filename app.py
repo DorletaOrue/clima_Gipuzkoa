@@ -51,7 +51,7 @@ col1,col2=st.columns([2,1])
 
 with col1:
     map1=folium.Map(location=[43.1,-1],zoom_start=12)
-    map1
+    st_folium(map1)
 
 with col2:
     # Plotly chart
