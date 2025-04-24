@@ -52,7 +52,7 @@ filtered_prec=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Va
 col1,col2=st.columns([2,1])
 
 with col1:
-    map1 = folium.Map(location=[43.3, -2.0], zoom_start=6)
+    map1 = folium.Map(location=[43.3, -2.0], zoom_start=15)
     # Mostrar mapa en Streamlit
     st_data = st_folium(map1, width=700, height=500)
 
