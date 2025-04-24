@@ -62,7 +62,8 @@ with col1:
     geo_df_list = [[point.xy[1][0], point.xy[0][0]] for point in geo_df.geometry]
     
     map1 = folium.Map(location=[43.178, -2.21], zoom_start=10)
-    # Mostrar mapa en Streamlit
+    marker_cluster = MarkerCluster().add_to(map1)
+    
     for station in geo_df_list:
         folium.Marker(
         location=station,
