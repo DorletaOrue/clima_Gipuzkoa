@@ -66,8 +66,11 @@ with col1:
     
     
     for location, name in zip(geo_df_list, station_names):
-        folium.CircleMarker(
+        folium.Circle(
             location=location,
+            radius=2,
+            fill=True;
+
             popup=name,
             tooltip=name
         ).add_to(map1)
