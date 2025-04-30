@@ -63,14 +63,14 @@ with col1:
     station_names = geo_df['Estación'].tolist()
     
     map1 = folium.Map(location=[43.178, -2.21], zoom_start=10)
-    marker_cluster = MarkerCluster().add_to(map1)
+    
     
     for location, name in zip(geo_df_list, station_names):
-        folium.Marker(
+        folium.CircleMarker(
             location=location,
             popup=name,
             tooltip=name
-        ).add_to(marker_cluster)
+        ).add_to(map1)
     st_data = st_folium(map1, width=700, height=500)
 
 with col2:
