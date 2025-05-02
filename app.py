@@ -50,6 +50,7 @@ filtered_data = filtered_data.dropna(subset=['Año', 'Valor'])
 
 filtered_temp=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Tenperatura / Temperatura')]
 filtered_prec=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Prezipitazioa / Precipitación')]
+filtered_flow=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Emaria / Caudal')]
 
 #Split main panel into two columns
 col1,col2=st.columns([2,1])
@@ -125,3 +126,27 @@ with col2:
     fig2.update_layout(title_x=0.5, xaxis_title='',yaxis_title='P (mm)', title='',template='plotly_white')
     st.plotly_chart(fig2, use_container_width=True)
 
+ filtered_flow = filtered_flow.dropna(subset=['Año', 'Valor']).copy()
+    # Plotly chart
+    fig3 = px.line(
+        filtered_flow,
+        x='Año',
+        y='Valor')
+    fig3.update_traces(mode='lines+markers',line=dict(color='green')) 
+    #calcular la línea de tendencia
+    x_flow=filtered_flow['Año'].astype(int)
+    y_flow=filtered_flow['Valor']
+    z_flow=np.polyfit(x_flow,y_flow,1)
+    p_flow=np.poly1d(z_flow)
+
+    #Añadir línea de tendencia
+    fig3.add_trace(go.Scatter(
+        x=x_flow,
+        y=p_flow(x_flow),
+        mode='lines',
+        name='Tendencia',
+        line=go.scatter.Line(color='black',dash='dash',width=3)
+    ))
+    
+    fig3.update_layout(title_x=0.5, xaxis_title='',yaxis_title='caudal (m^3/s)', title=estacion,template='plotly_white')
+    st.plotly_chart(fig1, use_container_width=True)
