@@ -5,6 +5,7 @@ Created on Thu Apr  3 13:51:48 2025
 @author: N28ORIGD
 """
 import pandas as pd
+import numpy as np
 import re
 import folium
 import matplotlib.pyplot as plt
@@ -17,7 +18,7 @@ from streamlit_folium import st_folium
 from folium.plugins import MarkerCluster  
 
 st.set_page_config(page_title='Dashboard', layout='wide')
-st.title('Clima Gipuzkoan')
+st.title('Klima Gipuzkoan')
 
 # Set sidebar width
 st.markdown("""
