@@ -126,7 +126,7 @@ with col2:
     fig2.update_layout(title_x=0.5, xaxis_title='',yaxis_title='P (mm)', title='',template='plotly_white')
     st.plotly_chart(fig2, use_container_width=True)
 
- filtered_flow = filtered_flow.dropna(subset=['Año', 'Valor']).copy()
+    filtered_flow = filtered_flow.dropna(subset=['Año', 'Valor']).copy()
     # Plotly chart
     fig3 = px.line(
         filtered_flow,
