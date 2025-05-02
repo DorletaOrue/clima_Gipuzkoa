@@ -69,7 +69,7 @@ with col1:
         folium.Circle(
             location=location,
             radius=2,
-            fill=True;
+            fill=True,
 
             popup=name,
             tooltip=name
