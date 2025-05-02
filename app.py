@@ -104,6 +104,10 @@ if st_data.get('last_object_clicked') is not None:
             nearest_station=row['Estación']
     if nearest_station:
         st.session_state['estacion']=nearest_station
+estacion=st.session_state['estacion']
+filtered_temp=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Tenperatura / Temperatura')]
+filtered_prec=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Prezipitazioa / Precipitación')]
+filtered_flow=Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == 'Emaria / Caudal')]
 
 
 with col2:
