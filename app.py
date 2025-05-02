@@ -98,16 +98,30 @@ with col2:
         y=p_temp(x_temp),
         mode='lines',
         name='Tendencia',
-        line=go.scatter.Line(color='blue',dash='dash',width=3)
+        line=go.scatter.Line(color='black',dash='dash',width=3)
     ))
     
     fig1.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
     st.plotly_chart(fig1, use_container_width=True)
 
+    filtered_prec = filtered_prec.dropna(subset=['Año', 'Valor']).copy()
     fig2=px.bar(
         filtered_prec,
         x='Año',
         y='Valor')
+    #calcular la línea de tendencia
+    x_prec=filtered_prec['Año'].astype(int)
+    y_prec=filtered_prec['Valor']
+    z_prec=np.polyfit(x_prec,y_prec,1)
+    p_prec=np.poly1d(z_prec)
+
+    fig2.add_trace(go.Scatter(
+        x=x_prec,
+        y=p_prec(x_prec),
+        mode='lines',
+        name='Tendencia',
+        line=go.scatter.Line(color='red',dash='dot',width=3)
+    
     fig2.update_layout(title_x=0.5, xaxis_title='',yaxis_title='P (mm)', title='',template='plotly_white')
     st.plotly_chart(fig2, use_container_width=True)
 
