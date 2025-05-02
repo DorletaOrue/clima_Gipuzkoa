@@ -149,4 +149,4 @@ with col2:
     ))
     
     fig3.update_layout(title_x=0.5, xaxis_title='',yaxis_title='caudal (m^3/s)', title=estacion,template='plotly_white')
-    st.plotly_chart(fig1, use_container_width=True)
+    st.plotly_chart(fig3, use_container_width=True)
