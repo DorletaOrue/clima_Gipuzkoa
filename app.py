@@ -96,6 +96,7 @@ with col2:
         x=x_temp,
         y=p_temp(x_temp),
         mode='lines',
+        name='Tendencia',
         line=go.scatter.Line(color='blue',dash='dash')
     ))
     
