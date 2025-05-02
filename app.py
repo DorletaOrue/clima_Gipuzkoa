@@ -9,7 +9,8 @@ import re
 import folium
 import matplotlib.pyplot as plt
 import streamlit as st
-import plotly.express as px  
+import plotly.express as px
+import plotly.graph_objects as go
 from io import BytesIO
 import geopandas
 from streamlit_folium import st_folium
