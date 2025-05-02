@@ -148,5 +148,5 @@ with col2:
         line=go.scatter.Line(color='black',dash='dash',width=3)
     ))
     
-    fig3.update_layout(title_x=0.5, xaxis_title='',yaxis_title='caudal (m^3/s)', title=estacion,template='plotly_white')
+    fig3.update_layout(title_x=0.5, xaxis_title='',yaxis_title='caudal (m^3/s)', title='',template='plotly_white')
     st.plotly_chart(fig3, use_container_width=True)
