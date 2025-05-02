@@ -43,6 +43,7 @@ variable = st.sidebar.selectbox('Aldagaia', variables)
 
 estaciones = Estaciones['Estación'].unique()
 estacion = st.sidebar.selectbox('Estazioa', estaciones)
+st.session_state['selected_station'] = None
 st_session_state['estacion']=estacion
 
 # Filter data
