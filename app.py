@@ -121,7 +121,7 @@ with col2:
         mode='lines',
         name='Tendencia',
         line=go.scatter.Line(color='red',dash='dot',width=3)
-    
+    ))
     fig2.update_layout(title_x=0.5, xaxis_title='',yaxis_title='P (mm)', title='',template='plotly_white')
     st.plotly_chart(fig2, use_container_width=True)
 
