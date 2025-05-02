@@ -79,6 +79,7 @@ with col1:
     st_data = st_folium(map1, width=700, height=500)
 
 with col2:
+    filtered_temp = filtered_temp.dropna(subset=['Año', 'Valor']).copy()
     # Plotly chart
     fig1 = px.line(
         filtered_temp,
