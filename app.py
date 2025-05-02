@@ -81,6 +81,30 @@ with col1:
             tooltip=name
         ).add_to(map1)
     st_data = st_folium(map1, width=700, height=500)
+#capturar la estación seleccionada al hacer click en el mapa
+if st_data.get('last_object_clicked') is not None:
+    clicked_lat=st_data['last_object_clicked']['lat']
+    clicked_lng=st_data['last_object_clicked']['lng']
+    #encontrar la estación más cercana al punto clicado
+    def haversine(lat1,lon1,lat2,lon2):
+        from math import radians, cos, sin, asin, sqrt
+        R=6371
+        dlat=radians(lat2-lat1)
+        dlon=radians(lon2-lon1)
+        a=sin(dlat/2)**2 + cos(radians(lat1)) * cos(radians(lat2)) * sin (dlon/2)**2
+        c=2*asin(sqrt(a))
+        return R*C
+
+    min_distance=float('inf')
+    nearest_station=None
+    for idx, row in Estaciones.iterrows():
+        distance=haversine(clicked_lat,clicked_lng,row['lat'],row['long'])
+        if distance < min_distance:
+            min_distance=distance
+            nearest_station=row['Estación']
+    if nearest_station:
+        st.session_state['estacion']=nearest_station
+
 
 with col2:
     filtered_temp = filtered_temp.dropna(subset=['Año', 'Valor']).copy()
