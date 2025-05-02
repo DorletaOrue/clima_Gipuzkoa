@@ -45,7 +45,7 @@ estaciones = Estaciones['Estación'].unique()
 estacion = st.sidebar.selectbox('Estazioa', estaciones)
 if 'selected_station' not in st.session_state:
     st.session_state['selected_station'] = None
-st_session_state['estacion']=estacion
+st.session_state['estacion']=estacion
 
 # Filter data
 filtered_data = Estaciones[(Estaciones['Estación'] == estacion) & (Estaciones['Variable'] == variable)]
