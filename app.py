@@ -83,6 +83,19 @@ with col2:
         x='Año',
         y='Valor')
     fig1.update_traces(mode='lines+markers',line=dict(color='red')) 
+    #calcular la línea de tendencia
+    x_temp=filtered_temp['Año']
+    y_temp=filtered_temp['Valor']
+    z_temp=np.polyfit(x_temp,y_temp,1)
+    p_temp=np.poly1d(z_temp)
+
+    #Añadir línea de tendencia
+    fig1.add_trace(go.Scatter(
+        x=x_temp,
+        y=p_temp(x_temp),
+        mode='lines',
+        line=dict(color='blacl',dash='dash')))
+    
     fig1.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
     st.plotly_chart(fig1, use_container_width=True)
 
