@@ -96,7 +96,7 @@ with col2:
         x=x_temp,
         y=p_temp(x_temp),
         mode='lines',
-        line=dict(color='blacl',dash='dash')
+        line=go.scatter.Line(color='blue',dash='dash')
     ))
     
     fig1.update_layout(title_x=0.5, xaxis_title='',yaxis_title='T (ºC)', title=estacion,template='plotly_white')
